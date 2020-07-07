@@ -767,34 +767,18 @@ Text Label 10650 3100 0    50   ~ 0
 V_Vccio1
 Text Label 10650 3200 0    50   ~ 0
 V_Vccio2
-$Comp
-L Device:Q_PMOS_GDS Q?
-U 1 1 5F1212DA
-P 7500 1300
-F 0 "Q?" V 7749 1300 50  0000 C CNN
-F 1 "Q_PMOS_GDS" V 7840 1300 50  0000 C CNN
-F 2 "" H 7700 1400 50  0001 C CNN
-F 3 "~" H 7500 1300 50  0001 C CNN
-	1    7500 1300
-	0    1    1    0   
-$EndComp
 Wire Wire Line
-	7700 1400 8100 1400
-Wire Wire Line
-	9500 1400 9500 2300
+	9500 1400 9500 2000
 Wire Wire Line
 	9600 2400 9600 2300
 Wire Wire Line
-	9600 2300 9500 2300
-Connection ~ 9500 2300
-Wire Wire Line
-	9500 2300 9500 2400
+	9500 2200 9500 2300
 Wire Wire Line
 	5900 2500 5900 2400
 Wire Wire Line
 	5900 2400 6600 2400
 Wire Wire Line
-	8600 2400 8600 1400
+	8600 2400 8600 2300
 Connection ~ 8600 1400
 Wire Wire Line
 	8600 1400 9500 1400
@@ -803,18 +787,6 @@ Wire Wire Line
 Wire Wire Line
 	5800 2400 5900 2400
 Connection ~ 5900 2400
-$Comp
-L Device:C C?
-U 1 1 5F137485
-P 8100 1550
-F 0 "C?" H 8215 1596 50  0000 L CNN
-F 1 "4.7uF" H 8215 1505 50  0000 L CNN
-F 2 "" H 8138 1400 50  0001 C CNN
-F 3 "~" H 8100 1550 50  0001 C CNN
-	1    8100 1550
-	1    0    0    -1  
-$EndComp
-Connection ~ 8100 1400
 Wire Wire Line
 	8100 1400 8600 1400
 $Comp
@@ -826,17 +798,6 @@ F 1 "GND" H 8105 1527 50  0000 C CNN
 F 2 "" H 8100 1700 50  0001 C CNN
 F 3 "" H 8100 1700 50  0001 C CNN
 	1    8100 1700
-	1    0    0    -1  
-$EndComp
-$Comp
-L Device:C C?
-U 1 1 5F13DF41
-P 6600 2550
-F 0 "C?" H 6715 2596 50  0000 L CNN
-F 1 "DNP" H 6715 2505 50  0000 L CNN
-F 2 "" H 6638 2400 50  0001 C CNN
-F 3 "~" H 6600 2550 50  0001 C CNN
-	1    6600 2550
 	1    0    0    -1  
 $EndComp
 Connection ~ 6600 2400
@@ -853,14 +814,14 @@ F 3 "" H 6600 2700 50  0001 C CNN
 	1    6600 2700
 	1    0    0    -1  
 $EndComp
-Text Notes 6300 2200 0    50   ~ 0
-testme: can caps be combined?
+Text Notes 6150 2350 0    50   ~ 0
+fixme: can caps be combined in any way?
 $Comp
 L Device:C C?
 U 1 1 5F140F42
 P 10300 2450
 F 0 "C?" H 10415 2496 50  0000 L CNN
-F 1 "DNP" H 10415 2405 50  0000 L CNN
+F 1 "2.2uF" H 10415 2405 50  0000 L CNN
 F 2 "" H 10338 2300 50  0001 C CNN
 F 3 "~" H 10300 2450 50  0001 C CNN
 	1    10300 2450
@@ -880,48 +841,8 @@ F 3 "" H 10300 2600 50  0001 C CNN
 	1    10300 2600
 	1    0    0    -1  
 $EndComp
-$Comp
-L power:+5V #PWR?
-U 1 1 5F15221C
-P 7200 700
-F 0 "#PWR?" H 7200 550 50  0001 C CNN
-F 1 "+5V" H 7215 873 50  0000 C CNN
-F 2 "" H 7200 700 50  0001 C CNN
-F 3 "" H 7200 700 50  0001 C CNN
-	1    7200 700 
-	1    0    0    -1  
-$EndComp
-Wire Wire Line
-	7300 1400 7200 1400
-Wire Wire Line
-	7200 1400 7200 1000
-Text Notes 6550 1800 0    50   ~ 0
-this is used for errata workaround
-$Comp
-L Device:R_Small R?
-U 1 1 5F16257B
-P 7350 1000
-F 0 "R?" V 7154 1000 50  0000 C CNN
-F 1 "10k" V 7245 1000 50  0000 C CNN
-F 2 "" H 7350 1000 50  0001 C CNN
-F 3 "~" H 7350 1000 50  0001 C CNN
-	1    7350 1000
-	0    1    1    0   
-$EndComp
-Wire Wire Line
-	7250 1000 7200 1000
-Connection ~ 7200 1000
-Wire Wire Line
-	7200 1000 7200 700 
-Wire Wire Line
-	7450 1000 7500 1000
-Wire Wire Line
-	7500 1000 7500 1100
-Wire Wire Line
-	7500 1000 8100 1000
-Connection ~ 7500 1000
-Text Label 7600 1000 0    50   ~ 0
-LDO_VIN_SW
+Text Notes 6200 1900 0    50   ~ 0
+this is used for errata workaround\nto prevent voltage spikes on ldo outputs
 Wire Wire Line
 	5000 3500 4200 3500
 Text Label 4250 3500 0    50   ~ 0
@@ -1289,7 +1210,7 @@ V_Vccio1_FAULT
 Text Label 12700 9400 0    50   ~ 0
 V_Vccio2_FAULT
 Text Notes 4000 3000 0    50   ~ 0
-io3 chosen due to fewest\nalt uses (no OE)
+io3 chosen due to fewest\nalt uses (e.g. no OE/ACMP)
 Text Notes 2500 4100 0    50   ~ 0
 io0/io8 chosen to maximize\nchoice for analog pins
 Wire Wire Line
@@ -1301,7 +1222,7 @@ AUX_LED_0
 Text Label 7950 3400 0    50   ~ 0
 AUX_LED_1
 Text Notes 9850 4900 0    50   ~ 0
-aux LEDs here because other part\nneeds to control delayed power\non functionality
+aux LEDs here because other part\nneeds to control delayed power\non functionality (design partitioning)
 $Comp
 L Device:R_Small R?
 U 1 1 5F257DF2
@@ -1596,4 +1517,113 @@ Text Notes 8300 8500 0    50   ~ 0
 this will be used for link status\n(io expander) in the real design
 Text Notes 13150 7350 0    50   ~ 0
 latched fault indicators
+$Comp
+L Device:C C?
+U 1 1 5F13DF41
+P 6600 2550
+F 0 "C?" H 6715 2596 50  0000 L CNN
+F 1 "2.2uF" H 6715 2505 50  0000 L CNN
+F 2 "" H 6638 2400 50  0001 C CNN
+F 3 "~" H 6600 2550 50  0001 C CNN
+	1    6600 2550
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:C C?
+U 1 1 5F137485
+P 8100 1550
+F 0 "C?" H 8215 1596 50  0000 L CNN
+F 1 "DNP 4.7uF" H 8215 1505 50  0000 L CNN
+F 2 "" H 8138 1400 50  0001 C CNN
+F 3 "~" H 8100 1550 50  0001 C CNN
+	1    8100 1550
+	1    0    0    -1  
+$EndComp
+Text Label 7600 1000 0    50   ~ 0
+LDO_VIN_SW
+Connection ~ 7500 1000
+Wire Wire Line
+	7500 1000 8100 1000
+Wire Wire Line
+	7500 1000 7500 1100
+Wire Wire Line
+	7450 1000 7500 1000
+Wire Wire Line
+	7200 1000 7200 700 
+Connection ~ 7200 1000
+Wire Wire Line
+	7250 1000 7200 1000
+$Comp
+L Device:R_Small R?
+U 1 1 5F16257B
+P 7350 1000
+F 0 "R?" V 7154 1000 50  0000 C CNN
+F 1 "10k" V 7245 1000 50  0000 C CNN
+F 2 "" H 7350 1000 50  0001 C CNN
+F 3 "~" H 7350 1000 50  0001 C CNN
+	1    7350 1000
+	0    1    1    0   
+$EndComp
+Wire Wire Line
+	7200 1400 7200 1000
+Wire Wire Line
+	7300 1400 7200 1400
+$Comp
+L power:+5V #PWR?
+U 1 1 5F15221C
+P 7200 700
+F 0 "#PWR?" H 7200 550 50  0001 C CNN
+F 1 "+5V" H 7215 873 50  0000 C CNN
+F 2 "" H 7200 700 50  0001 C CNN
+F 3 "" H 7200 700 50  0001 C CNN
+	1    7200 700 
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:Q_PMOS_GDS Q?
+U 1 1 5F1212DA
+P 7500 1300
+F 0 "Q?" V 7749 1300 50  0000 C CNN
+F 1 "Q_PMOS_GDS" V 7840 1300 50  0000 C CNN
+F 2 "" H 7700 1400 50  0001 C CNN
+F 3 "~" H 7500 1300 50  0001 C CNN
+	1    7500 1300
+	0    1    1    0   
+$EndComp
+Text Notes 3800 1900 0    50   ~ 0
+fixme: do we even need these?
+Connection ~ 8100 1400
+Wire Wire Line
+	7700 1400 8100 1400
+$Comp
+L Device:R_Small R?
+U 1 1 5F3C1459
+P 8600 2200
+F 0 "R?" H 8450 2250 50  0000 L CNN
+F 1 "R_Small" H 8200 2150 50  0000 L CNN
+F 2 "" H 8600 2200 50  0001 C CNN
+F 3 "~" H 8600 2200 50  0001 C CNN
+	1    8600 2200
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	8600 2100 8600 1400
+$Comp
+L Device:R_Small R?
+U 1 1 5F3C26A2
+P 9500 2100
+F 0 "R?" H 9550 2150 50  0000 L CNN
+F 1 "R_Small" H 9550 2050 50  0000 L CNN
+F 2 "" H 9500 2100 50  0001 C CNN
+F 3 "~" H 9500 2100 50  0001 C CNN
+	1    9500 2100
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	9600 2300 9500 2300
+Connection ~ 9500 2300
+Wire Wire Line
+	9500 2300 9500 2400
+Text Notes 9650 2050 0    50   ~ 0
+these resistors are needed because these slg\nparts are very power dissipation limited.\nthis hack is recommended by the datasheet
 $EndSCHEMATC
