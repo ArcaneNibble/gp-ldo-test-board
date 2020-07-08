@@ -1,0 +1,3 @@
+(sym_lib_table
+  (lib (name gp-ldo-test-board)(type Legacy)(uri ${KIPRJMOD}/gp-ldo-test-board.lib)(options "")(descr ""))
+)
